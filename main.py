@@ -22,14 +22,15 @@ class Serial(Film):
         self.numer_sezonu = numer_sezonu
 
     def print(self): #jezeli długość sezonu/odcinków będzie miała wartość jednoliterową to funckja będzie dodawac przed numerem odcinka
-        ilosc_sezonow = str(self.numer_sezonu)  # /sezonu "0" i wtedy wyjdzie np. "S07E02"
-        ilosc_odcinekow = str(self.numer_odcinka)
-        if len(ilosc_sezonow) < 2:
-            ilosc_sezonow = "0" + ilosc_sezonow
-        if len(ilosc_odcinekow) < 2:
-            ilosc_odcinekow = "0" + ilosc_odcinekow
+        numer_sezonu = str(self.numer_sezonu)  # /sezonu "0" i wtedy wyjdzie np. "S07E02"
+        numer_odcinka = str(self.numer_odcinka)
+        if len(numer_sezonu) < 2:
+            numer_sezonu = "0" + numer_sezonu
+        if len(numer_odcinka) < 2:
+            numer_odcinka = "0" + numer_odcinka
 
-        print(f"{self.tytul} S{ilosc_sezonow} E{ilosc_odcinekow}")
+        print(f"{self.tytul} S{numer_sezonu} E{numer_odcinka}")
+
 
 def get_movies(zbior):
     wynik = []
