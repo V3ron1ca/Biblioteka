@@ -34,30 +34,30 @@ class Serial(Film):
 
 def get_movies(zbior):
     wynik = []
-    for f in zbior:
-        if type(f) == Film:
-            wynik.append(f)
+    for filmy in zbior:
+        if type(filmy) == Film:
+            wynik.append(filmy)
     return wynik
 
 
 def get_series(zbior):
     wynik = []
-    for s in zbior:
-        if type(s) == Serial:
-            wynik.append(s)
+    for tv_series in zbior:
+        if type(tv_series) == Serial:
+            wynik.append(tv_series)
     return wynik
 
 
 def search(zbior, title):
-    for x in zbior:
-        if x.tytul == title:
-            return x
+    for szukaj in zbior:
+        if szukaj.tytul == title:
+            return szukaj
 
 
 def generate_views(zbior):
     if len(zbior) > 0:
-        f = choice(zbior)
-        f.liczba_odtworzen += randint(1, 100)
+        wyswietlenia = choice(zbior)
+        wyswietlenia.liczba_odtworzen += randint(1, 100)
 
 
 if __name__ == '__main__':
@@ -67,32 +67,32 @@ if __name__ == '__main__':
     biblioteka.append(Serial(tytul="Wataha", rok_wydania=2020, gatunek="Dokumentalny", numer_sezonu=2, numer_odcinka=5))
     biblioteka.append(Film(tytul="Pulp Fiction", rok_wydania=1994, gatunek="Kryminał"))
 
-    for f in biblioteka:
-        f.play()
-        f.print()
+    for zbior in biblioteka:
+        zbior.play()
+        zbior.print()
 
     print("Filmy:")
-    for x in get_movies(biblioteka):
-        x.print()
+    for filmy in get_movies(biblioteka):
+        filmy.print()
 
     print("Seriale:")
-    for x in get_series(biblioteka):
-        x.print()
+    for seriale in get_series(biblioteka):
+        seriale.print()
 
     search(biblioteka, "Czarnobyl").print()
 
     generate_views(biblioteka)
     print()
-    for f in biblioteka:
-        f.print()
-        print(f"Liczba wyswietlen: {f.liczba_odtworzen}")
+    for widok in biblioteka:
+        widok.print()
+        print(f"Liczba wyswietlen: {widok.liczba_odtworzen}")
 
 print()
 
 
 def top_titles():
-    for w in sorted(biblioteka, key=lambda w: f.liczba_odtworzen):
-        w.print()
+    for topowe_tytuly in sorted(biblioteka, key=lambda topowe_tytuly: widok.liczba_odtworzen):
+        topowe_tytuly.print()
 
 
 top_titles()
